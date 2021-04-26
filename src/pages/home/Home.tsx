@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap';
 import { Navi } from '../../components/Navi';
 import "./Home.css";
 
@@ -8,7 +9,9 @@ export const Home: React.FC<Props> = (props: Props) => {
 
     return (
         <div className="container-fluid">
-            <Navi />
+            <Row>
+
+            </Row>
         </div>
     );
 }
