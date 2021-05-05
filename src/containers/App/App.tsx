@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navi } from '../../components/Navi';
+import { Navi } from '../../components/navi/Navi';
 import { DataLoadedProvider } from '../../core/contexts/AreDataLoadedContext';
 import { FilerTextProvider } from '../../core/contexts/FilterTextContext';
 import { Routes } from '../Routes/Routes';
