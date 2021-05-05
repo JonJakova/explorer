@@ -1,10 +1,13 @@
 import React from 'react'
 import { Button, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useFilterText } from '../core/contexts/FilterTextContext';
 import "./Navi.css";
 
 interface Props { }
 
 export const Navi: React.FC<Props> = (props: Props) => {
+
+    const { setFilterText } = useFilterText();
 
     return (
         <>
@@ -23,7 +26,7 @@ export const Navi: React.FC<Props> = (props: Props) => {
                         </NavDropdown>
                     </Nav>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <FormControl onChange={e => setFilterText(e.target.value) } type="text" placeholder="Search" className="mr-sm-2" />
                         <Button variant="outline-success">Search</Button>
                     </Form>
                 </Navbar.Collapse>
