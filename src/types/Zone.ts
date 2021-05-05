@@ -1,5 +1,5 @@
 export interface Zone
 {
-    name: String,
-    description?: String
+    name: string,
+    description?: string
 }
