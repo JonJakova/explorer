@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Col, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Spinner } from '../../components/loader/Spinner';
 import { useDataLoaded } from '../../core/contexts/AreDataLoadedContext';
@@ -34,38 +34,40 @@ export const Home: React.FC<Props> = (props: Props) => {
     })
 
     return (
-        <div className="container-fluid">
-            {
-                !areDataLoaded
-                    ?
-                    <div> <Spinner isVisible={true} /> </div>
-                    :
-                    <div>
-                        <Row className="mt-3">
-                            {
-                                filteredZones.map(zone => {
-                                    return (
-                                        <Col key={zone.name} sm="6" md="4" lg="3">
-                                            <Link to={{
-                                                pathname: "/explore?" + zone.name,
-                                                state: zone
-                                            }} >
-                                                <Card>
-                                                    <Card.Header>
-                                                        <h3>{zone.name}</h3>
-                                                    </Card.Header>
-                                                    <Card.Body>
-                                                        <p>{zone.description}</p>
-                                                    </Card.Body>
-                                                </Card>
-                                            </Link>
-                                        </Col>
-                                    )
-                                })
-                            }
-                        </Row>
-                    </div>
-            }
+        <div>
+            <Container fluid>
+                {
+                    !areDataLoaded
+                        ?
+                        <div> <Spinner isVisible={true} /> </div>
+                        :
+                        <div>
+                            <Row className="mt-3">
+                                {
+                                    filteredZones.map(zone => {
+                                        return (
+                                            <Col key={zone.slug} sm="6" md="4" lg="3">
+                                                <Link to={{
+                                                    pathname: "/explore?" + zone.slug,
+                                                    state: zone
+                                                }} >
+                                                    <Card>
+                                                        <Card.Header>
+                                                            <h3>{zone.name}</h3>
+                                                        </Card.Header>
+                                                        <Card.Body>
+                                                            <p>{zone.description}</p>
+                                                        </Card.Body>
+                                                    </Card>
+                                                </Link>
+                                            </Col>
+                                        )
+                                    })
+                                }
+                            </Row>
+                        </div>
+                }
+            </Container>
         </div>
     );
 }

@@ -13,14 +13,14 @@ export const Navi: React.FC<Props> = (props: Props) => {
     return (
         <>
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#home">Via Egnatia</Navbar.Brand>
+                <Navbar.Brand href="/">Via Egnatia</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <NavDropdown title="Menu" id="basic-nav-dropdown">
                             {DropDownNaviItem.map(item => {
                                 return (
-                                    <NavDropdown.Item href={item.path}>{item.title}</NavDropdown.Item>
+                                    <NavDropdown.Item key={item.title} href={item.path}>{item.title}</NavDropdown.Item>
                                 );
                             })}
                             {/* <NavDropdown.Divider /> */}

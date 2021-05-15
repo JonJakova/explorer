@@ -1,24 +1,24 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import { RouteProps } from 'react-router';
 import { Zone } from '../../types/Zone';
 
-interface Props {
-    zone: Zone
-}
+interface Props extends RouteProps { }
 
 export const Explore: React.FC<Props> = (props: Props) => {
-    console.log("exp");
-    console.log(props.zone);
-    
+
+    const zone = props.location.state as Zone;
 
     return (
         <div>
-            <Row>
-                <h2>{props.zone.name}</h2>
-            </Row>
-            <Row>
-                <h4>{props.zone.description}</h4>
-            </Row>
+            <Container fluid>
+                <Row>
+                    <h2>{zone.name}</h2>
+                </Row>
+                <Row>
+                    <h4>{zone.description}</h4>
+                </Row>
+            </Container>
         </div>
     )
 }
