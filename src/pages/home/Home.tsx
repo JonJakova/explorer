@@ -48,7 +48,7 @@ export const Home: React.FC<Props> = (props: Props) => {
                                         return (
                                             <Col key={zone.slug} sm="6" md="4" lg="3">
                                                 <Link to={{
-                                                    pathname: "/explore?" + zone.slug,
+                                                    pathname: "/explore/" + zone.slug,
                                                     state: zone
                                                 }} >
                                                     <Card>
